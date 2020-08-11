@@ -1,0 +1,19 @@
+<header id="header">
+    <a href="{{ .Site.BaseURL }}">
+        <div id="logo"></div>
+        <div id="title">
+            <h1>{{ .Site.Title }}</h1>
+        </div>
+    </a>
+    <div id="nav">
+        <ul>
+            <li class="icon">
+                <a href="#"><i class="fas fa-bars fa-2x"></i></a>
+            </li>
+            
+            {{ range $menu := .Site.Menus.main }}
+                <li><b><a href="{{ $menu.URL }}">{{ $menu.Name }}</a></b></li>
+            {{ end }}
+        </ul>
+    </div>
+</header>

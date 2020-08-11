@@ -1,0 +1,25 @@
+{{- define "main" }}
+<section id="about">
+    {{- with .Site.Params.description }}
+        {{- . | markdownify -}}
+    {{ end }}
+</section>
+
+<section id="writing">
+    <span class="h1">近期堆積</span>
+
+    <ul class="post-list">
+        {{ range $page := (.Paginate .Site.RegularPages).Pages }}
+            <li class="post-item">
+                <div class="meta">
+                    <time datetime="{{ $page.Date }}" itemprop="datePublished">{{ $page.Date.Format "2006-01-02" }}</time>
+                </div>
+
+                <span>
+                    <a href="{{ $page.Permalink }}">{{ $page.Title }}</a>
+                </span>
+            </li>
+        {{ end }}
+    </ul>
+</section>
+{{- end }}
