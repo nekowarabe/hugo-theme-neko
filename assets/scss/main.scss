@@ -1,0 +1,34 @@
+/* use Hugo template syntax to define variables */
+
+// Fonts
+$font-family-body: 'Menlo', 'Meslo LG', monospace;
+$font-family-mono: 'Menlo', 'Meslo LG', monospace;
+$font-family-tt: 'Inconsolata', monospace;
+$font-size: 14px;
+$line-height: 1.725;
+$page-width: 0rem + {{ .Site.Params.page_width | default "39" }};
+
+// Logo
+$logo-width: 0px + {{ .Site.Params.logo_width | default "0" }};
+$logo-height: 0px + {{ .Site.Params.logo_height | default "0" }};
+
+@import '_colors/{{ .Site.Params.colorscheme | default "dark" }}';
+@import "_util";
+@import "_mixin";
+@import "_extend";
+@import "_fonts";
+@import "_basic";
+
+@import "_partial/header";
+@import "_partial/post/actions_desktop";
+@import "_partial/post/actions_mobile";
+@import "_partial/index";
+@import "_partial/article";
+@import "_partial/archive";
+@import "_partial/comments";
+@import "_partial/footer";
+@import "_partial/pagination";
+@import "_partial/search";
+@import "_partial/tags";
+@import "_partial/tooltip";
+@import "_partial/categories";

@@ -5,4 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
     <title>{{ .Title }}</title>
+
+    <!-- styles -->
+    {{ $style := resources.Get "scss/main.scss" | resources.ExecuteAsTemplate "style.scss" . | toCSS (dict "outputStyle" "compressed") | fingerprint }}
+    <link rel="stylesheet" href="{{ $style.Permalink }}" />
 </head>
