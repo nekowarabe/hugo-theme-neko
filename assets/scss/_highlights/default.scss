@@ -1,0 +1,81 @@
+pre[class*=language-] {
+    color: #c5c8c6;
+    background: #1d1f21;
+    
+    code[class*=language-] {
+        .comment,
+        .block-comment,
+        .prolog,
+        .doctype,
+        .cdata {
+            color: #969896;
+        }
+    
+        .punctuation {
+            color: #ccc;
+        }
+    
+        .tag,
+        .attr-name,
+        .namespace,
+        .deleted {
+            color: #e2777a;
+        }
+    
+        .function-name {
+            color: #6196cc;
+        }
+    
+        .boolean,
+        .number,
+        .function {
+            color: #f08d49;
+        }
+    
+        .property,
+        .class-name,
+        .constant,
+        .symbol {
+            color: #f8c555;
+        }
+    
+        .selector,
+        .important,
+        .atrule,
+        .keyword,
+        .builtin {
+            color: #cc99cd;
+        }
+    
+        .string,
+        .char,
+        .attr-value,
+        .regex,
+        .variable {
+            color: #b5bd68;
+        }
+    
+        .operator,
+        .entity,
+        .url {
+            color: #67cdcc;
+        }
+    
+        .inserted {
+            color: green;
+        }
+    
+        .important,
+        .bold {
+            font-weight: bold;
+        }
+    
+        .italic {
+            font-style: italic;
+        }
+    
+        .entity {
+            cursor: help;
+        }
+    }
+}

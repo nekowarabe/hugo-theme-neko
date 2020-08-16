@@ -1,0 +1,73 @@
+pre {
+    overflow-x: auto;
+    padding: 10px 15px;
+    border: 1px dotted $color-border;
+    border-radius: 4px;
+    font-size: 13px;
+    font-family: $font-family-mono;
+    line-height: 22px;
+    -webkit-border-radius: 4px;
+
+    code {
+        display: block;
+        padding: 0;
+        border: none;
+    }
+}
+
+code {
+    padding: 0 5px;
+    border: 1px dotted $color-border;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+}
+
+pre[class*=language-] {
+    margin: 1rem 0;
+    padding: 10px 15px;
+    border: none;
+    background: lighten($color-background-code, 7%);
+    font-family: $font-family-mono;
+
+    code[class*=language-] {
+        font-family: $font-family-mono;
+    }
+}
+
+pre[class*=language-].line-numbers {
+	position: relative;
+	padding-left: 3.8em;
+    counter-reset: linenumber;
+    
+    code {
+        position: relative;
+	    white-space: inherit;
+    }
+}
+
+.line-numbers-rows {
+	position: absolute;
+	pointer-events: none;
+	top: 0;
+	left: -3.8em;
+	width: 3em; /* works for line-numbers below 1000 lines */
+	letter-spacing: -1px;
+
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+
+    & > span {
+        display: block;
+        counter-increment: linenumber;
+        
+        &:before {
+            content: counter(linenumber);
+            opacity: .3;
+	        display: block;
+	        padding-right: 0.8em;
+	        text-align: right;
+        }
+    }
+}

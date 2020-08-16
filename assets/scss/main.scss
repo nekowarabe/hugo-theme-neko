@@ -13,11 +13,13 @@ $logo-width: 0px + {{ .Site.Params.logo_width | default "0" }};
 $logo-height: 0px + {{ .Site.Params.logo_height | default "0" }};
 
 @import '_colors/{{ .Site.Params.colorscheme | default "dark" }}';
+@import "_highlights/default";
 @import "_util";
 @import "_mixin";
 @import "_extend";
 @import "_fonts";
 @import "_basic";
+@import "_highlight";
 
 @import "_partial/header";
 @import "_partial/post/actions_desktop";
