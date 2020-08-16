@@ -1,0 +1,67 @@
+{{- define "main" }}
+
+<!--hide if on mobile -->
+{{- partial "post/actions_desktop.html" . }}
+
+<div class="content index py4 line-numbers">
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+        <header>
+            <!-- title -->
+            <h1 class="posttitle" itemprop="name headline">
+                {{- .Title -}}
+            </h1>
+
+            <div class="meta">
+                <!-- author -->
+                {{ $author := .Params.author | default .Site.Params.author }}
+                {{ if $author }}
+                    <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+                        <span itemprop="name">{{- $author }}</span>
+                    </span>
+                {{ end }}
+    
+                <!-- date -->
+                {{ with .Date }}
+                    <div class="postdate">
+                        <time datetime='{{ .Format "2006-01-02T15:04:05Z07:00" }}' itemprop="datePublished">{{ .Format "2006-01-02" }}</time>
+                    </div>
+                {{ end }}
+
+                <!-- category -->
+                {{ with .Params.categories }}
+                    <div class="article-category">
+                        <i class="fas fa-archive"></i>
+                        {{- range $key, $value := . -}}
+                            {{ if ne $key 0 -}}, {{ end }}
+                            <a class="category-link" href="/categories/{{ $value | urlize }}">{{ $value }}</a>
+                        {{- end -}}
+                    </div>
+                {{ end }}
+
+                <!-- tag -->
+                {{ with .Params.tags }}
+                    <div class="article-tag">
+                        <i class="fas fa-tag"></i>
+                        {{- range $key, $value := . -}}
+                            {{ if ne $key 0 -}}, {{ end }}
+                            <a class="tag-link" href="/tags/{{ $value | urlize }}" rel="tag">{{ $value }}</a>
+                        {{- end -}}
+                    </div>
+                {{ end }}
+            </div>
+        </header>
+
+        <div class="content" itemprop="articleBody">
+            {{- .Content }}
+        </div>
+
+    </article>
+
+    <!-- hide if on desktop -->
+    {{ partial "post/actions_mobile.html" . }}
+
+    {{- partial "footer.html" . -}}
+
+</div>
+
+{{- end }}

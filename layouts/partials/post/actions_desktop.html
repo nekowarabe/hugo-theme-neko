@@ -1,0 +1,57 @@
+<div id="header-post">
+    <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+    <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+    <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display: none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+    <span id="menu">
+        <span id="nav">
+            <ul>
+                {{ range $menu := .Site.Menus.main }}
+                    <li><b><a href="{{- $menu.URL }}">{{ $menu.Name }}</a></b></li>
+                {{ end }}
+            </ul>
+        </span>
+        <br />
+        
+        <span id="actions">
+            <ul>
+                <!-- older post -->
+                {{ with .PrevInSection }}
+                    <li><a class="icon" href="{{- .Permalink }}"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+                {{ end }}
+                <!-- newer post-->
+                {{ with .NextInSection }}
+                    <li><a class="icon" href="{{- .Permalink }}"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+                {{ end }}
+
+                <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+                <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+            </ul>
+            <span id="i-prev" class="info" style="display: none;">較舊的</span>
+            <span id="i-next" class="info" style="display: none;">較新的</span>
+            <span id="i-top" class="info" style="display: none;">回到開頭</span>
+            <span id="i-share" class="info" style="display: none;">分享</span>
+        </span>
+        <br />
+        
+        <div id="share" style="display: none;">
+            <ul>
+                {{ $URL := .Permalink | safeURL }}
+                <li><a class="icon" href="http://www.facebook.com/sharer.php?u={{ $URL }}"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
+                <li><a class="icon" href="https://twitter.com/share?url={{ $URL }}&text={{ .Title }}"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
+                <li><a class="icon" href="http://www.linkedin.com/shareArticle?url={{ $URL }}&title={{ .Title }}"><i class="fab fa-linkedin" aria-hidden="true"></i></a></li>
+                <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url={{ $URL }}&is_video=false&description={{ .Title }}"><i class="fab fa-pinterest" aria-hidden="true"></i></a></li>
+                <li><a class="icon" href="mailto:?subject={{ .Title }}&body=Check out this article: {{ $URL }}"><i class="fas fa-envelope" aria-hidden="true"></i></a></li>
+                <li><a class="icon" href="https://getpocket.com/save?url={{ $URL }}&title={{ .Title }}"><i class="fab fa-get-pocket" aria-hidden="true"></i></a></li>
+                <li><a class="icon" href="http://reddit.com/submit?url={{ $URL }}&title={{ .Title }}"><i class="fab fa-reddit" aria-hidden="true"></i></a></li>
+                <li><a class="icon" href="http://www.stumbleupon.com/submit?url={{ $URL }}&title={{ .Title }}"><i class="fab fa-stumbleupon" aria-hidden="true"></i></a></li>
+                <li><a class="icon" href="http://digg.com/submit?url={{ $URL }}&title={{ .Title }}"><i class="fab fa-digg" aria-hidden="true"></i></a></li>
+                <li><a class="icon" href="http://www.tumblr.com/share/link?url={{ $URL }}&name={{ .Title }}"><i class="fab fa-tumblr" aria-hidden="true"></i></a></li>
+                <li><a class="icon" href="https://news.ycombinator.com/submitlink?u={{ $URL }}&t={{ .Title }}"><i class="fab fa-hacker-news" aria-hidden="true"></i></a></li>
+            </ul>
+        </div>
+        
+        <div id="toc">
+
+        </div>
+    </span>
+</div>
