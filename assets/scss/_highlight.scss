@@ -32,12 +32,32 @@ pre[class*=language-] {
     code[class*=language-] {
         font-family: $font-family-mono;
     }
+
+    &:hover {
+        .btn-copy {
+            opacity: 1;
+        }
+    }
+
+    .btn-copy {
+        z-index: 1; // make clipboard on code block
+        font-size: 1.2rem;
+        position: absolute;
+        right: 20px;
+        opacity: 0;
+        transition: opacity 0.2s ease-in;
+
+        &:hover {
+            color: $color-accent-1;
+        }
+    }
 }
 
 pre[class*=language-].line-numbers {
 	position: relative;
 	padding-left: 3.8em;
     counter-reset: linenumber;
+    z-index: 0; // make code block under clipboard
     
     code {
         position: relative;
