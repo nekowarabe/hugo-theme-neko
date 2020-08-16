@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="{{ .Site.Language }}">
     {{- partial "head.html" . -}}
-    <body class='max-width mx-auto px3 ltr }}'>
+    <body class='max-width mx-auto px3 ltr'>
 
         {{- block "main" . }}{{- end }}
 
+        {{- partial "style.html" . -}}
+        {{- partial "script.html" . -}}
     </body>
-
-    <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css" />
 </html>
