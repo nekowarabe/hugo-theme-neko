@@ -1,71 +1,88 @@
 #header {
+    #logo {
+        filter: grayscale(100%);
+        -webkit-filter: grayscale(100%);
+    }
+}
+
+#header:hover {
+    #logo {
+        filter: none;
+        -webkit-filter: none;
+    }
+}
+
+#header {
     margin: 0 auto 2rem;
     width: 100%;
 
     h1, .h1 {
         margin-top: 0;
         margin-bottom: 0;
+
         color: $color-text;
-        letter-spacing: .01em;
         font-weight: 700;
         font-style: normal;
         font-size: 1.5rem;
         line-height: 2rem;
+        letter-spacing: .01em;
 
         @include antialias();
     }
 
     a {
         background: none;
-        color: inherit;
         text-decoration: none;
+
+        color: inherit;
     }
 
     #logo {
-        display: inline-block;
         float: left;
         margin-right: 20px;
+
         width: $logo-width;
         height: $logo-height;
         border-radius: 5px;
-        filter: grayscale(100%);
         background-size: $logo-width $logo-height;
         background-repeat: no-repeat;
-        -webkit-filter: grayscale(100%);
     }
 
     #nav {
         color: $color-accent-1;
-        letter-spacing: .01em;
+
         font-weight: 200;
         font-style: normal;
         font-size: .8rem;
+        letter-spacing: .01em;
 
         ul {
             margin: 0;
             padding: 0;
+
             list-style-type: none;
             line-height: 15px;
 
-            a {
-                margin-right: 15px;
-                color: $color-accent-1;
-            }
-
-            a:hover {
-                @include underline(5px, $color-accent-1);
+            .icon {
+                display: none;
             }
 
             li {
                 display: inline-block;
+                vertical-align: middle;
+
                 margin-right: 15px;
                 border-right: 1px dotted;
                 border-color: $color-accent-1;
-                vertical-align: middle;
-            }
 
-            .icon {
-                display: none;
+                a {
+                    margin-right: 15px;
+                    color: $color-accent-1;
+                }
+
+                a:hover {
+                    @include underline(5px, $color-accent-1);
+                }
             }
 
             li:last-child {
@@ -80,54 +97,53 @@
     }
 }
 
-#header:hover {
-    #logo {
-        filter: none;
-        -webkit-filter: none;
-    }
-}
-
 @media screen and (max-width: 480px) {
-    #header #title {
-        display: table;
-        margin-right: 5rem;
-        min-height: $logo-height;
+    #header {
+        #title {
+            min-height: $logo-height;
 
-        h1 {
-            display: table-cell;
-            vertical-align: middle;
+            display: table;
+            margin-right: 5rem;
+
+            h1 {
+                display: table-cell;
+                vertical-align: middle;
+            }
         }
     }
 
-    #header #nav {
-        ul {
-            a:hover {
-                background: none;
+    #header {
+        #nav {
+            ul {
+                a:hover {
+                    background: none;
+                }
+
+                li {
+                    display: none;
+                    border-right: 0;
+                }
+
+                li.icon {
+                    position: absolute;
+                    top: 77px;
+                    right: 0; // origin: 1rem
+                    display: inline-block;
+                }
             }
 
-            li {
-                display: none;
-                border-right: 0;
+            ul.responsive {
+                li {
+                    display: block;
+                }
             }
 
-            li.icon {
-                position: absolute;
-                top: 77px;
-                right: 1rem;
-                display: inline-block;
-            }
-        }
+            li:not(:first-child) {
+                padding-top: 1rem;
+                padding-left: $logo-width + 20px;
 
-        ul.responsive {
-            li {
-                display: block;
+                font-size: 1rem;
             }
-        }
-
-        li:not(:first-child) {
-            padding-top: 1rem;
-            padding-left: $logo-width + 20px;
-            font-size: 1rem;
         }
     }
 }
