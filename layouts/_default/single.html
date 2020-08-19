@@ -7,13 +7,13 @@
     <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
         <header>
             <!-- title -->
-            <h1 class="posttitle" itemprop="name headline">
+            <h1 class="post-title" itemprop="name headline">
                 {{- .Title -}}
             </h1>
 
             <div class="meta">
                 <!-- author -->
-                {{ $author := .Params.author | default .Site.Params.author }}
+                {{ $author := or (or .Params.author .Site.Params.author) .Site.Title }}
                 {{ if $author }}
                     <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
                         <span itemprop="name">{{- $author }}</span>
@@ -22,7 +22,7 @@
     
                 <!-- date -->
                 {{ with .Date }}
-                    <div class="postdate">
+                    <div class="post-date">
                         <time datetime='{{ .Format "2006-01-02T15:04:05Z07:00" }}' itemprop="datePublished">{{ .Format "2006-01-02" }}</time>
                     </div>
                 {{ end }}
@@ -58,7 +58,7 @@
     </article>
 
     <!-- hide if on desktop -->
-    {{ partial "post/actions_mobile.html" . }}
+    {{- partial "post/actions_mobile.html" . }}
 
     {{- partial "footer.html" . -}}
 
