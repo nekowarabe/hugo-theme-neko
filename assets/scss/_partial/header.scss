@@ -99,6 +99,11 @@
 
 @media screen and (max-width: 480px) {
     #header {
+        #logo {
+            filter: none;
+            -webkit-filter: none;
+        }
+        
         #title {
             min-height: $logo-height;
 
@@ -128,7 +133,9 @@
                     position: absolute;
                     top: 77px;
                     right: 0; // origin: 1rem
+
                     display: inline-block;
+                    margin-right: 0; // add to make menu more right
                 }
             }
 

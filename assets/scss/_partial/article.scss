@@ -1,11 +1,12 @@
 article {
     header {
-        .posttitle {
+        .post-title {
             margin-top: 0;
             margin-bottom: 0;
-            text-transform: none;
+            
             font-size: 1.5em;
             line-height: 1.25;
+            text-transform: none;
         }
 
         .meta {
@@ -14,7 +15,7 @@ article {
         }
 
         .meta * {
-            color: $color-accent-3;
+            color: $color-accent-3; // unknown
             font-size: .85rem;
         }
 
@@ -24,27 +25,28 @@ article {
             font-weight: 700;
         }
 
-        .postdate {
+        .post-date {
             display: inline;
         }
     }
 
     .content {
         h2:before {
+            content: "#";
+
             position: absolute;
             top: -4px;
             left: -1.2rem;
+
             color: $color-accent-1;
-            content: "#";
             font-weight: bold;
             font-size: 1.75rem;
         }
 
-        img,
-        video {
+        img, video {
             display: block;
-            margin: auto;
             max-width: 100%;
+            margin: auto;
             height: auto;
         }
 
@@ -68,24 +70,28 @@ article {
         blockquote {
             margin: 1rem 10px;
             padding: .5em 10px;
-            background: inherit;
+
             color: $color-quote;
-            quotes: "\201C" "\201D" "\2018" "\2019";
             font-weight: bold;
+
+            background: inherit; // unknown
+            quotes: "\201C" "\201D" "\2018" "\2019"; // unknown
 
             p {
                 margin: 0;
             }
 
             &:before {
-                margin-right: .25em;
-                color: $color-quote;
                 content: "\201C";
+
+                margin-right: .25em;
                 vertical-align: -.4em;
+
                 font-size: 2em;
                 line-height: .1em;
             }
-
+            
+            // unknown
             footer {
                 margin: line-height 0;
                 color: $color-meta;
@@ -110,6 +116,7 @@ article {
             }
         }
 
+        // unknown
         .pullquote {
             margin: 0;
             width: 45%;
@@ -126,6 +133,7 @@ article {
             }
         }
 
+        // unknown
         .caption {
             position: relative;
             display: block;
@@ -137,10 +145,10 @@ article {
     }
 }
 
-.posttile {
-    text-transform: none;
-    font-size: 1.5em;
-    line-height: 1.25;
+.article-category {
+    .category-link {
+        @include underline(10px, $color-link);
+    }
 }
 
 .article-tag {
@@ -151,12 +159,6 @@ article {
             content: "#";
         }
     }   
-}
-
-.article-category {
-    .category-link {
-        @include underline(10px, $color-link);
-    }
 }
 
 @media (min-width: 480px) {
