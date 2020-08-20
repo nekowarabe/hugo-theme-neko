@@ -37,6 +37,26 @@
         {{ end }}
     </section>
 
+    {{ with .Site.Data.projects }}
+        <section id="projects">
+            <span class="h1">
+                {{- if isset $.Site.Params "projects_url" -}}
+                    <a href="{{ $.Site.Params.projects_url }}">{{- i18n "project" }}</a>
+                {{- else -}}
+                    專案
+                {{- end -}}
+            </span>
+
+            <ul class="project-list">
+                {{ range $project := . }}
+                    <li class="project-item">
+                        <a href="{{ $project.url }}">{{ $project.name }}</a>: {{ $project.desc | markdownify -}}
+                    </li>
+                {{ end }}
+            </ul>
+        </section>
+    {{ end }}
+
     {{- partial "footer.html" . -}}
 </div>
 
