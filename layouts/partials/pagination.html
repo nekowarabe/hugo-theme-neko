@@ -1,4 +1,4 @@
-{{ if gt .paginator.Pagers 1}}
+{{ if gt .paginator.TotalPages 1}}
     <div class="pagination">
         {{ if .paginator.HasPrev }}
             <a href="{{ .paginator.Prev.URL }}"><i class="fas fa-angle-left"></i></a>
