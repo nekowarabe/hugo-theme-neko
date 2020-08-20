@@ -1,0 +1,29 @@
+{{- define "main" }}
+
+<div class="content index py4">
+    {{- partial "header.html" . }}
+
+    <artivle class="post" itemscope itemtype="http://schema.org/BlogPosting">
+        <div class="content" itemprop="articleBody">
+            <div id="categories">
+                <div class="category-list-title">
+                </div>
+
+                <div class="category-list">
+                    <ul class="category-list">
+                        {{ range $taxonomy := .Data.Pages }}
+                        <li class="category-list-item">
+                            <a class="category-list-link" href="{{ $taxonomy.Permalink }}">{{ $taxonomy.Title }}</a>
+                            <span class="category-list-count">{{ len $taxonomy.Pages }}</span>
+                        </li>
+                        {{ end }}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </artivle>
+
+    {{- partial "footer.html" . -}}
+</div>
+
+{{- end }}
