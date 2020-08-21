@@ -1,0 +1,23 @@
+#taxonomies {
+    .taxonomy-title {
+        margin-top: 0;
+
+        color: lighten($color-meta, 50%);
+    }
+
+    .taxonomy-list {
+        .taxonomy-list-item {
+            .taxonomy-count {
+                color: $color-meta;
+
+                &:before {
+                    content: " (";
+                }
+
+                &:after {
+                    content: ")";
+                }
+            }
+        }
+    }
+}
