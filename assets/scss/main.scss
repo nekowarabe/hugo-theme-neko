@@ -9,8 +9,8 @@ $line-height: 1.725;
 $page-width: 0rem + {{ .Site.Params.page_width | default "39" }};
 
 // Logo
-$logo-width: 0px + {{ .Site.Params.logo_width | default "0" }};
-$logo-height: 0px + {{ .Site.Params.logo_height | default "0" }};
+$logo-width: 0px + {{ .Site.Params.logo.width | default "0" }};
+$logo-height: 0px + {{ .Site.Params.logo.height | default "0" }};
 
 @import '_colors/{{ .Site.Params.colorscheme | default "dark" }}';
 @import "_highlights/default";

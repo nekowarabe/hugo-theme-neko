@@ -1,6 +1,12 @@
 <header id="header">
     <a href="{{ .Site.BaseURL }}">
-        <div id="logo" style='background-image: url("/images/icon.svg");'></div>
+        {{ if .Site.Params.logo.enable }}
+            {{ if and .Site.Params.logo.use_gravatar (isset .Site.Params "email") }}
+                <div id="logo" style='background-image: url("https://www.gravatar.com/avatar/{{ md5 .Site.Params.email }}");'></div>
+            {{ else }}
+                <div id="logo" style='background-image: url("/images/logo.svg");'></div>
+            {{ end }}
+        {{ end }}
         <div id="title">
             <h1>{{ .Site.Title }}</h1>
         </div>
