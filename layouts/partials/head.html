@@ -4,6 +4,14 @@
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
+    {{ if .Site.Params.icon_enable }}
+        {{ if .Site.Params.email }}
+            <link rel="shortcut icon" href="https://www.gravatar.com/avatar/{{ md5 .Site.Params.email }}?s=16">
+        {{ else }}
+            <link rel="shortcut icon" href="/images/favicon.ico">
+        {{ end }}
+    {{ end }}
+
     <title>{{ .Title }}</title>
 
     <!-- styles -->
