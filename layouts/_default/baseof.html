@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ .Site.Language }}">
     {{- partial "head.html" . -}}
-    <body class='max-width mx-auto px3 ltr'>
+    <body class='max-width mx-auto px3 {{ .Site.Params.direction | default "ltr" }}'>
 
         {{- block "main" . }}{{- end }}
 
