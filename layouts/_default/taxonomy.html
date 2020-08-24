@@ -8,8 +8,10 @@
             <div id="taxonomies">
                 <h2 class="taxonomy-title">{{ upper .Data.Plural }}</h2>
 
+                {{- .Content }}
+
                 <ul class="taxonomy-list">
-                    {{ range $taxonomy := .Data.Pages }}
+                    {{ range $taxonomy := .Data.Pages.ByTitle }}
                     <li class="taxonomy-list-item">
                         <a class="taxonomy-link" href="{{ $taxonomy.Permalink }}">{{ $taxonomy.Title }}</a>
                         <span class="taxonomy-count">{{ len $taxonomy.Pages }}</span>
