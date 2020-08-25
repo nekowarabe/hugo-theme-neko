@@ -6,9 +6,13 @@
 
     {{ if .Site.Params.icon_enable }}
         {{ if .Site.Params.email }}
-            <link rel="shortcut icon" href="https://www.gravatar.com/avatar/{{ md5 .Site.Params.email }}?s=16">
+            <link rel="shortcut icon" href="https://www.gravatar.com/avatar/{{ md5 .Site.Params.email }}?s=16" />
+            <link rel="icon" type="image/png" sizes="192x192" href="https://www.gravatar.com/avatar/{{ md5 .Site.Params.email }}?s=192" />
+            <link rel="apple-touch-icon" sizes="180x180" href="https://www.gravatar.com/avatar/{{ md5 .Site.Params.email }}?=180" />
         {{ else }}
-            <link rel="shortcut icon" href="/images/favicon.ico">
+            <link rel="shortcut icon" href="/images/favicon.ico" />
+            <link rel="icon" type="image/png" sizes="192x192" href="/images/android-chrome-192x192.png" />
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
         {{ end }}
     {{ end }}
     
