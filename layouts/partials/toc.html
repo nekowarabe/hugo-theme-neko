@@ -1,0 +1,14 @@
+{{ $headers := findRE "<h[1-6].*?>(.|\n])+?</h[1-6]>" .Content }}
+{{ if ge (len $headers) 1 }}
+    <ol class="toc">
+        {{ range $header := $headers }}
+            {{ $level := findRE "[1-6]" $header 1 }}
+            <li class="toc-item toc-level-{{ index $level 0 }}">
+                <a class="toc-link" href='#{{ replaceRE ".* id=\"(.*?)\".*" "$1" $header }}'>
+                    <span class="toc-text">{{ $header | plainify | htmlUnescape }}</span>
+                </a>
+            </li>
+        {{ end }}
+    </ol>
+{{ end }}
+
