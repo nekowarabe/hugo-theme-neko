@@ -23,4 +23,10 @@
     <!-- styles -->
     {{ $style := resources.Get "scss/main.scss" | resources.ExecuteAsTemplate "style.scss" . | toCSS (dict "outputStyle" "compressed") | fingerprint }}
     <link rel="stylesheet" href="{{ $style.Permalink }}" />
+
+    <!-- persian styles -->
+    {{ if .Site.Params.direction }}
+        {{ $rtl_style := resources.Get "scss/rtl.scss" | resources.ExecuteAsTemplate "rtl.scss" . | toCSS (dict "outputStyle" "compressed") | fingerprint }}
+        <link rel="stylesheet" href="{{ $rtl_style.Permalink }}" />
+    {{ end }}
 </head>
