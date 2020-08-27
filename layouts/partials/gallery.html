@@ -1,0 +1,10 @@
+{{ if and .Params.photos (reflect.IsSlice .Params.photos) }}
+<div class="article-gallery">
+    {{ $ID := .File.UniqueID }}
+    {{ range $photo := .Params.photos }}
+        <a class="gallery-item" href="{{ $photo }}" rel="gallery_{{ $ID }}">
+            <img src="{{ $photo }}" itemprop="image" />
+        </a>
+    {{ end }}
+</div>
+{{ end }}
