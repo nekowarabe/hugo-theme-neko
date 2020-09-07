@@ -6,7 +6,7 @@ $font-family-mono: 'Menlo', 'Meslo LG', monospace;
 $font-family-tt: 'Inconsolata', monospace;
 $font-size: 14px;
 $line-height: 1.725;
-$page-width: 0rem + {{ .Site.Params.page_width | default "39" }};
+$page-width: 0rem + {{ .Site.Params.pageWidth | default "39" }};
 
 // Logo
 $logo-width: 0px + {{ .Site.Params.logo.width | default "0" }};

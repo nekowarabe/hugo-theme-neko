@@ -13,12 +13,12 @@
         <span class="h1">近期堆積</span>
 
         <ul class="post-list">
-            {{ $pages := cond (eq .Site.Params.post.byUpdated true) .Site.RegularPages.ByLastmod.Reverse .Site.RegularPages}}
+            {{ $pages := cond (eq .Site.Params.post.sortByUpdated true) .Site.RegularPages.ByLastmod.Reverse .Site.RegularPages}}
             {{ $paginator := .Paginate $pages }}
             {{ range $page := $paginator.Pages }}
                 <li class="post-item">
                     <div class="meta">
-                        {{ if and .Site.Params.post.byUpdated (ne $page.Date $page.Lastmod) }}
+                        {{ if and .Site.Params.post.sortByUpdated (ne $page.Date $page.Lastmod) }}
                             <time datetime="{{ $page.Lastmod }}" itemprop="dateModified">{{ $page.Lastmod.Format "2006-01-02" }}</time>
                         {{ else }}
                             <time datetime="{{ $page.Date }}" itemprop="datePublished">{{ $page.Date.Format "2006-01-02" }}</time>

@@ -4,8 +4,8 @@
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-    {{ if .Site.Params.icon_enable }}
-        {{ if .Site.Params.email }}
+    {{ if .Site.Params.icon.enable }}
+        {{ if and .Site.Params.icon.useGravatar (isset .Site.Params "email") }}
             <link rel="shortcut icon" href="https://www.gravatar.com/avatar/{{ md5 .Site.Params.email }}?s=16" />
             <link rel="icon" type="image/png" sizes="192x192" href="https://www.gravatar.com/avatar/{{ md5 .Site.Params.email }}?s=192" />
             <link rel="apple-touch-icon" sizes="180x180" href="https://www.gravatar.com/avatar/{{ md5 .Site.Params.email }}?=180" />
