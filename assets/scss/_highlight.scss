@@ -36,7 +36,6 @@ pre[class*=language-] {
 }
 
 pre[class*=language-].line-numbers {
-	position: relative;
 	padding-left: 3.8em;
     counter-reset: linenumber;
     z-index: 0; // make code block under clipboard
