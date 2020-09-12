@@ -13,7 +13,9 @@
         <span class="h1">近期堆積</span>
 
         <ul class="post-list">
-            {{ $pages := cond (eq .Site.Params.post.sortByUpdated true) .Site.RegularPages.ByLastmod.Reverse .Site.RegularPages}}
+            {{ $pages := where .Site.Pages "Section" "post"}}
+            {{ $pages = where $pages "Kind" "page"}}
+            {{ $pages = cond (eq .Site.Params.post.sortByUpdated true) $pages.ByLastmod.Reverse $pages }}
             {{ $paginator := .Paginate $pages }}
             {{ range $page := $paginator.Pages }}
                 <li class="post-item">
