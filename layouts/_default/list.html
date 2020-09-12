@@ -8,7 +8,8 @@
             {{ $year := 0 }}
             {{ $isChange := false }}
 
-            {{ $pages := cond (eq .Site.Params.post.byUpdated true) .Site.RegularPages.ByLastmod.Reverse .Site.RegularPages}}
+            {{ $pages := where .Pages "Kind" "page" }}
+            {{ $pages = cond (eq .Site.Params.post.byUpdated true) $pages.ByLastmod.Reverse $pages }}
             {{ $paginator := .Paginate $pages }}
             {{ range $page := $paginator.Pages }}
                 {{ $curr := $page.Date.Format "2006" }}
