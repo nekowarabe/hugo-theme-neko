@@ -26,10 +26,10 @@
                 <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
                 <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
             </ul>
-            <span id="i-prev" class="info" style="display: none;">較舊的</span>
-            <span id="i-next" class="info" style="display: none;">較新的</span>
-            <span id="i-top" class="info" style="display: none;">回到開頭</span>
-            <span id="i-share" class="info" style="display: none;">分享</span>
+            <span id="i-prev" class="info" style="display: none;">{{ i18n "prevPost" }}</span>
+            <span id="i-next" class="info" style="display: none;">{{ i18n "nextPost" }}</span>
+            <span id="i-top" class="info" style="display: none;">{{ i18n "backToTop" }}</span>
+            <span id="i-share" class="info" style="display: none;">{{ i18n "share" }}</span>
         </span>
         <br />
         

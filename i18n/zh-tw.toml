@@ -1,0 +1,26 @@
+[copyright]
+other = "Copyright"
+
+[mostRecent]
+other = "近期堆積"
+
+[projects]
+other = "專案"
+
+[share]
+other = "分享"
+
+[backToTop]
+other = "回到開頭"
+
+[prevPost]
+other = "較舊的"
+
+[nextPost]
+other = "較新的"
+
+[menu]
+other = "選單"
+
+[toc]
+other = "段落"

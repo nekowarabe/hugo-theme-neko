@@ -1,6 +1,6 @@
 <footer id="footer">
     <div class="footer-left">
-        Copyright &copy;
+        {{ i18n "copyright" }} &copy;
         {{ $start := .Site.Params.startYear | default (now.Format "2006") }}
         {{ $end := .Site.Params.endYear | default (now.Format "2006") }}
         {{ cond (ne $start $end) (printf "%v-%v" $start $end) $start }}

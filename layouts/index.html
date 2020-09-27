@@ -10,7 +10,7 @@
     </section>
 
     <section id="writing">
-        <span class="h1">近期堆積</span>
+        <span class="h1">{{ i18n "mostRecent" }}</span>
 
         <ul class="post-list">
             {{ $pages := where .Site.Pages "Section" "post"}}
@@ -43,9 +43,9 @@
         <section id="projects">
             <span class="h1">
                 {{- if isset $.Site.Params "projects_url" -}}
-                    <a href="{{ $.Site.Params.projects_url }}">專案</a>
+                    <a href="{{ $.Site.Params.projects_url }}">{{ i18n "projects" }}</a>
                 {{- else -}}
-                    專案
+                    {{ i18n "projects" }}
                 {{- end -}}
             </span>
 
