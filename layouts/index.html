@@ -7,10 +7,18 @@
         {{- with .Site.Params.description }}
             {{- . | markdownify -}}
         {{ end }}
+
+        <!-- Social Links -->
     </section>
 
     <section id="writing">
-        <span class="h1">{{ i18n "mostRecent" }}</span>
+        <span class="h1">
+            {{ if .Site.Params.archivesURL }}
+                <a href="{{ .Site.Params.archivesURL }}">{{ i18n "mostRecent" }}</a>
+            {{ else }}
+                {{ i18n "mostRecent" }}
+            {{ end }}
+        </span>
 
         <ul class="post-list">
             {{ $pages := where .Site.Pages "Section" "post"}}
@@ -42,8 +50,8 @@
     {{ with .Site.Data.projects }}
         <section id="projects">
             <span class="h1">
-                {{- if isset $.Site.Params "projects_url" -}}
-                    <a href="{{ $.Site.Params.projects_url }}">{{ i18n "projects" }}</a>
+                {{- if $.Site.Params.projectsURL -}}
+                    <a href="{{ $.Site.Params.projectsURL }}">{{ i18n "projects" }}</a>
                 {{- else -}}
                     {{ i18n "projects" }}
                 {{- end -}}
