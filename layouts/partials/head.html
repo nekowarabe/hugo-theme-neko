@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="{{ $style.Permalink }}" />
 
     <!-- persian styles -->
-    {{ if .Site.Params.direction }}
+    {{ if eq .Site.Params.direction "rtl" }}
         {{ $rtl_style := resources.Get "scss/rtl.scss" | resources.ExecuteAsTemplate "rtl.scss" . | toCSS (dict "outputStyle" "compressed") | fingerprint }}
         <link rel="stylesheet" href="{{ $rtl_style.Permalink }}" />
     {{ end }}
