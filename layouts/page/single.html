@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.Language }}">
+    {{- partial "head.html" . -}}
+    <body class='max-width mx-auto px3 {{ .Site.Params.direction | default "ltr" }}'>
+        <div class="content index py4">
+            {{- partial "header.html" . }}
+
+            <article class="post" itemscope="" itemtype="http://schema.org/BlogPosting">
+                <div class="content" itemprop="articleBody">
+                    {{- .Content }}
+                </div>
+            </article>
+        
+            {{- partial "footer.html" . -}}
+        </div>
+
+        {{- partial "style.html" . -}}
+        {{- partial "script.html" . -}}
+    </body>
+</html>
