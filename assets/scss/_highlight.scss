@@ -22,7 +22,6 @@ pre[class*=language-] {
     }
 
     .btn-copy {
-        z-index: 1; // make clipboard on code block
         font-size: 1.2rem;
         position: absolute;
         right: 20px;
@@ -36,11 +35,11 @@ pre[class*=language-] {
 }
 
 pre[class*=language-].line-numbers {
-	padding-left: 3.8em;
+    padding-left: 3.8em;
     counter-reset: linenumber;
-    z-index: 0; // make code block under clipboard
     
     code {
+        pointer-events: none;
         position: relative;
 	    white-space: inherit;
     }
